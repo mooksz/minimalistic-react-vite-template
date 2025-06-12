@@ -1,6 +1,6 @@
 # 📦 React Template
 
-A modern React project template powered by **Vite**, **Vitest**, **TypeScript**, **ESLint**, **Prettier**, **Husky**, **Commitizen**, and a **feature-based folder structure**.
+A modern React project template powered by **Vite**, **Vitest**, **TypeScript**, **ESLint**, **Prettier**, **Husky**, **Commitizen**, **Commitlint** and a **feature-based folder structure**.
 
 ---
 
@@ -41,6 +41,22 @@ Strongly typed JavaScript for scalable and maintainable code.
 ### ⚡ Vite
 
 Fast and modern build tool for frontend development.
+
+### 🧪 Vitest
+
+Blazing fast unit testing powered by Vite. Supports TypeScript out of the box and integrates seamlessly with your development workflow.
+
+Run tests with (watch):
+
+```bash
+npm run test
+```
+
+Generate a coverage report with:
+
+```bash
+npm run test:coverage
+```
 
 ### 🧹 ESLint
 
@@ -92,6 +108,16 @@ This will prompt you with a structured commit message interface.
 
 > ⚠️ Manual commits via an IDE UI are blocked by commitlint if it doesn't follow the Conventional Commits standard.
 
+### 📦 Included Libraries
+
+This template includes a few essential libraries to help you build robust and scalable applications:
+
+- @tanstack/react-query – Powerful asynchronous state management and data fetching for React.
+- clsx – A tiny utility for conditionally joining classNames.
+- zod – Type-safe schema validation with great TypeScript support.
+
+These are ready to use out of the box and commonly used in modern React projects.
+
 ---
 
 ## 🗂️ Project Structure
@@ -114,7 +140,7 @@ Each feature contains its own domain-specific logic, components, and utilities. 
 
 ---
 
-## 🧪 Dev-Only Console Wrapper
+## 🧰 Dev-Only Console Wrapper
 
 To avoid logging in production, use the built-in devConsole utility:
 
@@ -131,7 +157,7 @@ Supported methods:
 
 ---
 
-## 👓 Try catch utility
+## 🪤 Try catch utility
 
 A lightweight utility function for handling asynchronous (or synchronous) operations with a clean, tuple-based error handling pattern.
 
@@ -162,12 +188,14 @@ if (err) {
 
 ## 📦 Scripts Summary
 
-| Script  | Description                         |
-| ------- | ----------------------------------- |
-| dev     | Start Vite dev server               |
-| build   | Type-check and build for production |
-| preview | Preview production build            |
-| lint    | Run ESLint                          |
-| format  | Format code with Prettier           |
-| prepare | Install Husky hooks                 |
-| commit  | Use Commitizen for commits          |
+| Script        | Description                            |
+| ------------- | -------------------------------------- |
+| dev           | Start Vite dev server                  |
+| build         | Type-check and build for production    |
+| preview       | Preview production build               |
+| lint          | Run ESLint                             |
+| format        | Format code with Prettier              |
+| prepare       | Install Husky hooks                    |
+| commit        | Use Commitizen for commits             |
+| test          | Use Vitest in watch mode               |
+| test:coverage | Use Vitest to generate coverage report |
