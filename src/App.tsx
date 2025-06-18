@@ -1,14 +1,14 @@
 import { Route, Routes } from 'react-router';
 import { MainLayout } from './layouts/MainLayout';
-import { Home } from './routes/Home';
-import { AnotherPage } from './routes/AnotherPage';
+import { HomePage } from './routes';
+import { AnotherPage } from './routes/another-page';
 
 function App() {
     return (
         <>
             <Routes>
                 <Route element={<MainLayout />}>
-                    <Route index element={<Home />} />
+                    <Route index element={<HomePage />} />
                     <Route path="another-page" element={<AnotherPage />} />
                 </Route>
             </Routes>

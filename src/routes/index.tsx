@@ -1,6 +1,6 @@
 import { Button } from '@/components/button/Button';
 
-export function Home() {
+export function HomePage() {
     return (
         <>
             This is home <br />
