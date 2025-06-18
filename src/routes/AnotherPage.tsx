@@ -5,7 +5,7 @@ export function AnotherPage() {
         <>
             This is another page <br />
             <Button tagName="a" href="/">
-                Go to another page
+                Go to home page
             </Button>
         </>
     );
