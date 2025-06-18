@@ -1,22 +1,17 @@
-import { useTodos } from './hooks/useTodos';
+import { Route, Routes } from 'react-router';
+import { MainLayout } from './layouts/MainLayout';
+import { Home } from './routes/Home';
+import { Todos } from './routes/Todos';
 
 function App() {
-    const { isLoading, data, error } = useTodos(1);
-
-    if (error) {
-        console.log(error);
-        return <>Error!</>;
-    }
-
-    if (isLoading) {
-        return <>Loading</>;
-    }
-
     return (
         <>
-            <pre>
-                <code>{JSON.stringify(data, null, 2)}</code>
-            </pre>
+            <Routes>
+                <Route element={<MainLayout />}>
+                    <Route index element={<Home />} />
+                    <Route path="another-page" element={<Todos />} />
+                </Route>
+            </Routes>
         </>
     );
 }

@@ -1,6 +1,6 @@
 # 📦 React Template
 
-A modern React project template powered by **Vite**, **Vitest**, **TypeScript**, **ESLint**, **Prettier**, **Husky**, **Commitizen**, **Commitlint** and a **feature-based folder structure**.
+A modern React project template powered by **Vite**, **Vitest**, **TypeScript**, **React Router**, **Zod**, **React Query**, **ESLint**, **Prettier**, **Husky**, **Commitizen**, **Commitlint** and a **feature-based folder structure**.
 
 ---
 
@@ -117,6 +117,12 @@ This template includes a few essential libraries to help you build robust and sc
 - zod – Type-safe schema validation with great TypeScript support.
 
 These are ready to use out of the box and commonly used in modern React projects.
+
+---
+
+### 🧭 Routing
+
+This template includes React Router for client-side navigation. The current setup uses declarative routing with components like <BrowserRouter>, <Routes>, and <Route>, making it easy to define and manage application routes in a clean and scalable way.
 
 ---
 
