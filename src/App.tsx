@@ -1,9 +1,17 @@
-import { Button } from '@/components/button/Button';
+import { Route, Routes } from 'react-router';
+import { MainLayout } from './layouts/MainLayout';
+import { Home } from './routes/Home';
+import { AnotherPage } from './routes/AnotherPage';
 
 function App() {
     return (
         <>
-            <Button>My button</Button>
+            <Routes>
+                <Route element={<MainLayout />}>
+                    <Route index element={<Home />} />
+                    <Route path="another-page" element={<AnotherPage />} />
+                </Route>
+            </Routes>
         </>
     );
 }
