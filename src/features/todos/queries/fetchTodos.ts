@@ -1,4 +1,4 @@
-import { todoSchema, type Todo } from '@/types/todo';
+import { todoSchema, type Todo } from '@/features/todos/types/todo';
 import type { QueryFunction } from '@tanstack/react-query';
 
 export const fetchTodos: QueryFunction<Todo[], [string, number]> = async ({ signal, queryKey }) => {

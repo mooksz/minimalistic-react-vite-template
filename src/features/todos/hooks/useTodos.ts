@@ -1,4 +1,4 @@
-import { fetchTodos } from '@/queries/todos/fetchTodos';
+import { fetchTodos } from '@/features/todos/queries/fetchTodos';
 import { useQuery } from '@tanstack/react-query';
 
 export function useTodos(amount = 1) {

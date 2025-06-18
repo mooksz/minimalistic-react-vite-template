@@ -1,23 +1,11 @@
 import { Button } from '@/components/button/Button';
-import { useTodos } from '@/hooks/useTodos';
+import { Todos } from '@/features/todos/components/Todos';
 
-export function Todos() {
-    const { isLoading, data, error } = useTodos(1);
-
-    if (error) {
-        console.log(error);
-        return <>Error!</>;
-    }
-
-    if (isLoading) {
-        return <>Loading</>;
-    }
+export function TodosPage() {
     return (
         <>
             This is the todos page <br />
-            <pre>
-                <code>{JSON.stringify(data, null, 2)}</code>
-            </pre>
+            <Todos />
             <Button tagName="a" href="/">
                 Go to home page
             </Button>
