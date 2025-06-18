@@ -18,15 +18,21 @@ type AnchorProps = BaseProps & {
 type Props = ButtonProps | AnchorProps;
 
 export function Button(props: Readonly<Props>) {
-    const { tagName, className, ...rest } = props;
+    const { tagName, className, children, type, ...rest } = props;
 
     if (tagName === 'a') {
         const anchorProps = rest as AnchorHTMLAttributes<HTMLAnchorElement>;
-        // eslint-disable-next-line jsx-a11y/anchor-has-content
-        return <a className={clsx(styles['button'], className)} {...anchorProps} />;
+        return (
+            <a className={clsx(styles['button'], className)} {...anchorProps}>
+                {children}
+            </a>
+        );
     }
 
     const buttonProps = rest as ButtonHTMLAttributes<HTMLButtonElement>;
-    // eslint-disable-next-line react-dom/no-missing-button-type
-    return <button className={clsx(styles['button'], className)} {...buttonProps} />;
+    return (
+        <button type={type} className={clsx(styles['button'], className)} {...buttonProps}>
+            {children}
+        </button>
+    );
 }
