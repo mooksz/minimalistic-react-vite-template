@@ -122,7 +122,7 @@ These are ready to use out of the box and commonly used in modern React projects
 
 ### 🧭 Routing
 
-This template includes React Router for client-side navigation. The current setup uses declarative routing with components like <BrowserRouter>, <Routes>, and <Route>, making it easy to define and manage application routes in a clean and scalable way.
+This template includes React Router for client-side navigation. The current setup uses declarative routing with components like `<BrowserRouter>`, `<Routes>`, and `<Route>`, making it easy to define and manage application routes in a clean and scalable way.
 
 ---
 
