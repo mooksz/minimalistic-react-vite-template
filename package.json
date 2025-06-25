@@ -12,6 +12,7 @@
         "prepare": "husky install",
         "commit": "cz",
         "test": "vitest",
+        "test:ci": "vitest run",
         "test:coverage": "vitest run --coverage"
     },
     "dependencies": {
