@@ -5,7 +5,7 @@ import { expect, it, describe } from 'vitest';
 describe('Button', () => {
     it('renders button', () => {
         const buttonText = 'My button';
-        render(<Button>{buttonText}</Button>);
+        render(<Button tagName="button">{buttonText}</Button>);
 
         const button = screen.getByRole('button');
 
