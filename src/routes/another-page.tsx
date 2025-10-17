@@ -1,4 +1,4 @@
-import { Button } from '@/components/button/temp-Button';
+import { Button } from '@/components/button/button';
 
 export function AnotherPage() {
     return (

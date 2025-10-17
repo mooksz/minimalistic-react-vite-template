@@ -1,7 +1,7 @@
 import { type ClassValue, clsx } from 'clsx';
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
 
-import styles from './Button.module.scss';
+import styles from './button.module.scss';
 
 type BaseProps = {
     children: ReactNode;

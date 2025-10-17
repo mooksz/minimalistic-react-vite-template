@@ -5,7 +5,7 @@ import { ZodError } from 'zod';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import '@/styles/vendor.scss';
-import App from '@/temp-App';
+import App from '@/app';
 
 const queryClient = new QueryClient({
     defaultOptions: {
