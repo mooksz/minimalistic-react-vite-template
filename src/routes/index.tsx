@@ -1,4 +1,4 @@
-import { Button } from '@/components/button/Button';
+import { Button } from '@/components/button/temp-Button';
 
 export function HomePage() {
     return (
