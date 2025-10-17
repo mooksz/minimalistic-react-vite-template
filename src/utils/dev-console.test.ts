@@ -1,5 +1,6 @@
-import { describe, it, vi, afterEach, expect, beforeAll, afterAll } from 'vitest';
-import { devConsole } from './dev-console';
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
+
+import { devConsole } from '@/utils/dev-console';
 
 const testMethods = [
     'log',

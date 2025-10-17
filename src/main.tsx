@@ -1,10 +1,11 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import '@/styles/vendor.scss';
-import App from '@/App.tsx';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ZodError } from 'zod';
 import { BrowserRouter } from 'react-router';
+import { ZodError } from 'zod';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+import '@/styles/vendor.scss';
+import App from '@/App';
 
 const queryClient = new QueryClient({
     defaultOptions: {

@@ -1,5 +1,6 @@
-import { describe, it, expect } from 'vitest';
-import { tryCatch } from './try-catch';
+import { describe, expect, it } from 'vitest';
+
+import { tryCatch } from '@/utils/try-catch';
 
 describe('tryCatch', () => {
     it('should return result for a successful sync function', async () => {

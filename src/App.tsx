@@ -1,7 +1,9 @@
 import { Route, Routes } from 'react-router';
-import { MainLayout } from './layouts/MainLayout';
-import { HomePage } from './routes';
-import { AnotherPage } from './routes/another-page';
+
+import { MainLayout } from '@/layouts/MainLayout';
+
+import { HomePage } from '@/routes';
+import { AnotherPage } from '@/routes/another-page';
 
 function App() {
     return (
