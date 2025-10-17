@@ -124,6 +124,8 @@ These are ready to use out of the box and commonly used in modern React projects
 
 This template includes React Router for client-side navigation. The current setup uses declarative routing with components like `<BrowserRouter>`, `<Routes>`, and `<Route>`, making it easy to define and manage application routes in a clean and scalable way.
 
+> ⚠️ Don't forget to use the `<Link>` component for internal linking!
+
 ---
 
 ## 🗂️ Project Structure
@@ -136,7 +138,7 @@ src/
 ├── utils/
 ├── constants/
 ├── features/
-│   ├── featureA/
+│   ├── feature-a/
 │   │   ├── components/
 │   │   ├── utils/
 │   │   └── ...
@@ -170,7 +172,14 @@ A lightweight utility function for handling asynchronous (or synchronous) operat
 ```typescript
 import { tryCatch } from '@/utils/try-catch';
 
-const [error, result] = await tryCatch(someAsyncFunction, arg1, arg2);
+const [error, result] = await tryCatch(promise);
+const [error, result] = await tryCatch(callBack, arg1, arg2);
+const [error, result] = await tryCatch(async () => {
+    const result1 = await doSomething1();
+    const result2 = await doSomething2();
+
+    return [...result1, ...result2];
+});
 ```
 
 Why use it?
@@ -181,7 +190,7 @@ Why use it?
 - Improves readability and simplifies error handling logic.
 
 ```typescript
-const [err, data] = await tryCatch(fetchUser, userId);
+const [err, data] = await tryCatch(fetchUser(userId));
 
 if (err) {
     // Do something with error
@@ -200,8 +209,148 @@ if (err) {
 | build         | Type-check and build for production    |
 | preview       | Preview production build               |
 | lint          | Run ESLint                             |
+| lint:fix      | Run ESLint with auto-fix               |
 | format        | Format code with Prettier              |
 | prepare       | Install Husky hooks                    |
 | commit        | Use Commitizen for commits             |
 | test          | Use Vitest in watch mode               |
 | test:coverage | Use Vitest to generate coverage report |
+
+## 🧭 Project Conventions
+
+To ensure consistency and maintainability across our codebase, we follow a set of conventions agreed upon by the team. Below is an overview of these conventions:
+
+### 📁 Directory Structure: Feature-Based Pattern
+
+We use a feature-based directory structure. This means:
+
+Top-level directories include shared resources (components, types, styles, assets, etc.)
+Each feature has its own directory containing all related files.
+
+Example:
+
+```
+src/
+├── components/
+│   └── Button/
+│       └── Button.tsx
+├── features/
+│   └── auth/
+│       ├── components/
+│       │   ├── LoginForm.module.scss
+│       │   └── LoginForm.tsx
+│       ├── types/
+│       │   ├── auth-states.ts
+│       │   └── user-details.ts
+│       └── utils/
+│           ├── login.ts
+│           └── logout.ts
+```
+
+### 📂 Naming Conventions
+
+#### Folder Names
+
+- Use kebab-case for all folder names.
+    - ✅ login-form
+    - ❌ LoginForm
+
+#### File Names
+
+- Use kebab-case for all files
+
+Examples:
+
+```
+login-form.ts
+login-form.tsx
+login-form.module.scss
+```
+
+### 🌐 Language
+
+- All code (variables, functions, types, etc.) is written in English.
+- Dutch (or other languages) is only used for hardcoded user-facing text.
+
+### 📦 Exporting
+
+- Use named exports for all functions, variables, and components:
+
+```typescript
+export function MyComponent();
+export function myFunction();
+```
+
+### 🧩 Props & Component Typing
+
+- Props are defined using Readonly and destructured inside the function body.
+- The props type follows the convention: ComponentNameProps.
+
+Example:
+
+```typescript
+type MyComponentProps = {
+    prop1: string;
+    prop2: boolean;
+};
+
+export function MyComponent(props: Readonly<MyComponentProps>) {
+    const { prop1, prop2 } = props;
+
+    // Component logic
+}
+```
+
+### 🧠 Naming: Components & Functions
+
+- Components → PascalCase
+- Functions → camelCase
+
+Example:
+
+```typescript
+export function MyComponent();
+export function myFunction();
+```
+
+### 🌿 Git Branch Naming
+
+Branches must include the **issue number** and be written in **English**. Use the following format:
+
+`purpose/developername-issuenumber-description`
+
+Examples:
+
+- feature/john-10-add-button-component
+- bug/john-11-fix-sass-warning
+- refactor/-john-12-rewrite-component-x-according-to-conventions
+
+### 🎨 CSS Class Names & clsx
+
+- All CSS class names use kebab-case.
+- Use bracket notation for the styles property access notation.
+- Use clsx for conditional or concatenated class names.
+
+Example:
+
+```typescript
+import { clsx } from 'clsx';
+import styles from './my-component.module.scss';
+
+✅ const className = clsx(styles['button'], isActive && 'button--active');
+❌ const className = `${styles.button} ${isActive ? 'button--active' : ''}`;
+```
+
+### 🖼️ SVG Usage
+
+- Store SVGs as separate files in the appropriate assets folder (either feature-specific or shared).
+- Import SVGs as React components.
+- Do not inline SVGs in code.
+
+Example:
+
+```typescript
+import Logo from './assets/logo.svg?react';
+
+<Logo />
+```
