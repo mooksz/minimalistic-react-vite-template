@@ -128,26 +128,6 @@ This template includes React Router for client-side navigation. The current setu
 
 ---
 
-## 🗂️ Project Structure
-
-This template uses a feature-based folder structure:
-
-```
-src/
-├── components/
-├── utils/
-├── constants/
-├── features/
-│   ├── feature-a/
-│   │   ├── components/
-│   │   ├── utils/
-│   │   └── ...
-```
-
-Each feature contains its own domain-specific logic, components, and utilities. Shared functions or logic should be in the top level directories.
-
----
-
 ## 🧰 Dev-Only Console Wrapper
 
 To avoid logging in production, use the built-in devConsole utility:
