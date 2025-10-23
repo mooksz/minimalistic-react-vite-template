@@ -217,8 +217,8 @@ src/
 ├── features/
 │   └── auth/
 │       ├── components/
-│       │   ├── LoginForm.module.scss
-│       │   └── LoginForm.tsx
+│       │   ├── login-form.module.scss
+│       │   └── login-form.tsx
 │       ├── types/
 │       │   ├── auth-states.ts
 │       │   └── user-details.ts
