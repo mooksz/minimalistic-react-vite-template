@@ -238,6 +238,8 @@ src/
 #### File Names
 
 - Use kebab-case for all files
+    - ✅ login-form.tsx
+    - ❌ LoginForm.tsx
 
 Examples:
 
