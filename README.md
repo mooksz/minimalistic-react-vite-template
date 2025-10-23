@@ -336,3 +336,69 @@ import Logo from './assets/logo.svg?react';
 
 <Logo />
 ```
+
+### 🧠 React Query Conventions
+
+To ensure consistency and maintainability across our codebase, we follow a set of conventions when working with React Query for data fetching and mutations.
+
+#### 📁 Directory Structure
+
+Each feature module contains its own query and mutation logic, organized as follows:
+
+- **constants/query-keys.ts or constants/mutation-keys.ts**
+
+    - Stores the primary query or mutation keys used throughout the feature.
+
+- **queries/ or mutations/ directory**
+    - Contains the actual query or mutation functions, each in its own file.
+
+#### 🔑 Query & Mutation Keys
+
+Keys are defined as constants in the appropriate query-keys.ts or mutation-keys.ts file.
+
+Naming convention:
+
+```ts
+// ../constants/query-keys.ts
+export const GET_POSTS_PRIMARY_QUERY_KEY = 'get-posts';
+
+// ../constants/mutation-keys.ts
+export const CREATE_POST_PRIMARY_MUTATION_KEY = 'create-post';
+```
+
+These keys serve as the first element in the query key array passed to `useQuery` or `useMutation`.
+
+#### 🧪 Query & Mutation Functions
+
+Each query or mutation is placed in a separate file named after its purpose. Example: get-posts.ts for fetching posts.
+
+The function is exported and typed using React Query's built-in types:
+
+```ts
+// ../queries/get-posts.ts
+import { QueryFunction } from '@tanstack/react-query';
+
+export const getPosts: QueryFunction<Post[]> = async ({ queryKey, signal }) => {
+    // implementation
+};
+
+// ../mutations/create-post.ts
+import { MutationFunction } from '@tanstack/react-query';
+
+export const createPost: MutationFunction<Post, NewPostPayload> = async payload => {
+    // implementation
+};
+```
+
+#### ✅ Usage Example
+
+```ts
+import { useQuery } from '@tanstack/react-query';
+import { GET_POSTS_PRIMARY_QUERY_KEY } from '@/features/posts/constants/query-keys';
+import { getPosts } from '@/features/posts/queries/get-posts';
+
+const query = useQuery({
+    queryKey: [GET_POSTS_PRIMARY_QUERY_KEY],
+    queryFn: getPosts,
+});
+```
